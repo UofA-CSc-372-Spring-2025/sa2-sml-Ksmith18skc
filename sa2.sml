@@ -22,27 +22,39 @@ val () =
 
 
 (**** Problem B ****)
-(*
-fun firstVowel _ = false
+
+fun firstVowel [] = false
+  | firstVowel (#"a"::_) = true
+  | firstVowel (#"e"::_) = true
+  | firstVowel (#"i"::_) = true
+  | firstVowel (#"o"::_) = true
+  | firstVowel (#"u"::_) = true
+  | firstVowel (_::_) = false
+
+
 
 val () =
     Unit.checkExpectWith Bool.toString "firstVowel 'ack' should be true"
     (fn () => firstVowel [#"a",#"c",#"k"])
     true
-*)
+
 (**** Problem C ****)
 (*
 fun reverse xs = xs
-
+*)
+fun reverse l = foldl List.:: [] l
 val () =
   Unit.checkExpectWith (Unit.listString Int.toString) 
   "reverse [1,2] should be [2,1]"
   (fn () => reverse [1,2])
   [2,1]
-*)
+
 (**** Problem D ****)
-(*
-fun minlist _ = 0
+
+fun minlist (l:int list):int = 
+  case l of
+  [] => raise Match
+  | x::xs => foldl Int.min x xs;
 
 val () =
   Unit.checkExnWith Int.toString
@@ -54,7 +66,7 @@ val () =
   "minlist [1,2,3,4,0] should be 0"
   (fn () => minlist [1,2,3,4,0])
   0
-*)
+
 (**** Problem E ****)
 (*
 exception Mismatch
