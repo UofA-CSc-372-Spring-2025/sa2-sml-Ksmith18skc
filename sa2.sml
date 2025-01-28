@@ -1,7 +1,7 @@
 (* Solutions to SA2 assignment, Intro to ML *)
 
-(* Name:                                    *)
-(* Time spent on HW6:
+(* Name:  Kory Smith                                  *)
+(* Time spent on HW6: embarrassing amount
 *)
 
 (* Collaborators and references:
